@@ -1,0 +1,32 @@
+[Unit]
+Description=Sky Ludo multiplayer game
+After=network.target
+
+[Service]
+Type=simple
+User=sky-ludo
+Group=sky-ludo
+WorkingDirectory=/opt/sky-ludo/current
+ExecStart=/opt/sky-ludo/runtime/bin/node server.mjs
+EnvironmentFile=/etc/sky-ludo/sky-ludo.env
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+UMask=0077
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+{
+  "name": "plastic-airlines",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "塑料航线 (Plastic Airlines) - 在线多人联机趣味飞行棋",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/engine.test.mjs test/fun-engine.test.mjs test/ranks-walls.test.mjs test/lucky-ice.test.mjs test/rules-social-items.test.mjs test/key-events.test.mjs test/afk.test.mjs test/server.test.mjs test/captains.test.mjs test/captains-server.test.mjs test/combat-regressions.test.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

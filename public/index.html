@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c1d40">
+  <meta name="description" content="塑料航线 (Plastic Airlines) - 和朋友一起玩在线趣味飞行棋。创建房间，分享邀请，2 至 4 人实时联机。">
+  <title>塑料航线 · Plastic Airlines</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230c1d40'/%3E%3Cpath d='M12 34l17-3 7-19 7-2-3 20 12 8-2 5-15-5-9 15-5-1 5-18z' fill='%23ffd21b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/game.css">
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="m21 3-7.2 18-3.6-7.2L3 10.2 21 3Z"/><path d="m10.2 13.8 5.4-5.4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-5 6-1.5 1.5a4.2 4.2 0 0 1-6-6L6 6a4.2 4.2 0 0 1 6 0m0 12a4.2 4.2 0 0 0 6 0l4.5-4.5a4.2 4.2 0 0 0-6-6L15 9"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Zm5 4 5 6m0-6-5 6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="i-bell-off" viewBox="0 0 24 24"><path d="M8.66 8.66A6 6 0 0 0 6 8c0 7-3 9-3 9h14m2 0c-.38-.63-.8-1.3-1.18-2.06M10.27 2.18A6 6 0 0 1 18 8c0 1.25-.19 2.45-.53 3.56M1 1l22 22"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m2-15a3 3 0 0 1 0 6m1 3a5 5 0 0 1 3 4v2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-exit" viewBox="0 0 24 24"><path d="M10 4H4v16h6m4-14 6 6-6 6m-6-6h12"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 3h8v7a4 4 0 0 1-8 0V3Zm0 2H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 2v6m-5 1h10"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-1 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-4.97-4.48-9-10-9zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 8 6.5 8s1.5.67 1.5 1.5S7.33 11 6.5 11zm3-4C8.67 7 8 6.33 8 5.5S8.67 4 9.5 4s1.5.67 1.5 1.5S10.33 7 9.5 7zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 4 14.5 4s1.5.67 1.5 1.5S15.33 7 14.5 7zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 8 17.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <header class="site-header">
+      <div id="game-header-tools" class="game-mode-row" hidden>
+        <div id="game-mode-summary" class="game-mode-summary"></div>
+        <div class="game-mode-actions"><button id="fun-intro-button" class="text-button fun-intro-button" type="button" hidden>玩法简介</button><button id="skin-button-game" class="text-button skin-button-game" type="button"><svg class="icon"><use href="#i-palette"/></svg>装扮</button></div>
+      </div>
+      <a class="brand" href="/" aria-label="塑料航线首页">
+        <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
+        <span>塑料航线<span class="brand-sub">Plastic Airlines</span></span>
+      </a>
+      <div class="header-actions">
+        <span id="connection" class="connection" hidden><i></i><span>正在连接</span></span>
+        <button id="skin-toggle" class="icon-button skin-toggle" type="button" title="个性装扮：皮肤中心" aria-label="个性装扮：皮肤中心"><svg class="icon"><use href="#i-palette"/></svg></button>
+        <button id="turn-sound-toggle" class="icon-button turn-sound-toggle" type="button" title="开启掷骰提示音" aria-label="开启掷骰提示音"><svg class="icon"><use href="#i-bell-off"/></svg></button>
+        <button id="sound-toggle" class="icon-button" type="button" title="开启音效" aria-label="开启音效"><svg class="icon"><use href="#i-mute"/></svg></button>
+        <button id="home-button" class="text-button" type="button" hidden><svg class="icon"><use href="#i-back"/></svg><span>返回首页</span></button>
+        <button id="end-game" class="text-button danger-text" type="button" hidden>结束游戏</button>
+      </div>
+    </header>
+
+    <main id="home-view" class="home-view">
+      <section class="hero-copy">
+        <span class="eyebrow"><span class="live-dot"></span>好朋友，不用在同一个房间</span>
+        <h1>约上朋友，<br>一起<span>起飞。</span><svg class="hero-plane icon"><use href="#i-plane"/></svg></h1>
+        <p class="hero-description">熟悉的四色棋盘，新一轮的好运气。<br>创建一个房间，让快乐即刻降落。</p>
+        <div class="hero-features"><span><svg class="icon"><use href="#i-users"/></svg>2—4 人联机</span><span><svg class="icon"><use href="#i-link"/></svg>链接一键邀请</span><span><svg class="icon"><use href="#i-check"/></svg>无需注册</span></div>
+        <div class="room-entry">
+          <label class="field-label" for="player-name">先给自己取个名字</label>
+          <div class="name-field"><span class="name-avatar" aria-hidden="true">☺</span><input id="player-name" autocomplete="nickname" maxlength="20" placeholder="你的昵称" aria-label="你的昵称"><span class="field-hint">20 字以内</span></div>
+          <button id="create-room" class="button button-primary create-button" type="button"><svg class="icon"><use href="#i-plus"/></svg><span>创建房间</span><svg class="icon button-arrow"><use href="#i-arrow"/></svg></button>
+          <div class="entry-divider"><span>或加入朋友的房间</span></div>
+          <form id="join-form" class="join-form"><input id="room-code" aria-label="房间号" placeholder="输入房间号" maxlength="8" autocomplete="off" spellcheck="false"><button class="button button-secondary" type="submit">加入<svg class="icon"><use href="#i-arrow"/></svg></button></form>
+          <p id="entry-error" class="inline-error" role="alert" hidden></p>
+        </div>
+      </section>
+      <section class="hero-visual" aria-label="飞行棋四色棋盘预览">
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <span class="visual-tag tag-top"><span class="live-dot"></span>下一位，轮到好运</span>
+        <div id="preview-board" class="preview-board"></div>
+        <div class="visual-note"><span class="note-avatars"><i>🍊</i><i>🪐</i><i>🌿</i><i>☀</i></span><div>四种颜色，一桌朋友<small>快乐的目的地，是一起玩</small></div><svg class="icon"><use href="#i-plane"/></svg></div>
+        <div class="floating-dice" aria-hidden="true"><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span></div>
+      </section>
+    </main>
+
+    <main id="room-view" class="room-view" hidden>
+      <section class="room-heading">
+        <div><div class="eyebrow" id="room-eyebrow">大家就位，好运准备起飞</div><h1 id="room-title">候机大厅</h1></div>
+        <div class="room-id-box"><span>房间号</span><strong id="room-id">——</strong><button id="invite-button" class="text-button" type="button"><svg class="icon"><use href="#i-link"/></svg>邀请朋友</button></div>
+      </section>
+      <div class="room-layout">
+        <aside id="left-panel" class="left-panel dock-zone" data-dock="left" data-dock-label="拖放至棋盘左侧"></aside>
+        <section class="play-area" aria-label="游戏区">
+          <div id="seats" class="seats"></div>
+          <section id="captain-selection" class="captain-selection" aria-labelledby="captain-selection-title" hidden><h3 id="captain-selection-title">选择你的机长</h3><p id="captain-selection-status" class="strategy-note"></p><div id="captain-choices" class="captain-choices"></div><p id="captain-selection-note" class="strategy-note">每位机长各有一个主动和一个被动，主动次数见机长说明。可以选择相同机长，开局后锁定。</p></section>
+          <div id="lobby-panel" class="lobby-panel">
+            <div class="lobby-illustration" aria-hidden="true"><div class="runway-ring"></div><span class="lobby-dot dot-green"></span><span class="lobby-dot dot-red"></span><span class="lobby-dot dot-yellow"></span><span class="lobby-dot dot-blue"></span><svg class="icon"><use href="#i-plane"/></svg></div>
+            <span class="eyebrow">BOARDING NOW</span><h2 id="lobby-title">等朋友，一起出发</h2><p id="lobby-message">把邀请链接发给朋友，即可加入这桌游戏。</p>
+            <div class="capacity-field"><span>本局人数</span><div id="capacity-options" class="segmented" role="group" aria-label="本局人数"><button type="button" data-capacity="2">2 人</button><button type="button" data-capacity="3">3 人</button><button type="button" data-capacity="4">4 人</button></div></div>
+            <div class="capacity-field mode-field"><span>本局模式</span><div id="mode-options" class="segmented" role="group" aria-label="本局模式"><button type="button" data-mode="classic">经典</button><button type="button" data-mode="fun">趣味</button></div></div>
+            <p id="mode-description" class="mode-description">经典模式 · 熟悉的同色跳跃和飞行规则。</p>
+            <p id="mode-permission" class="mode-permission">房主可在开始游戏前切换模式。</p>
+            <button id="fun-intro-lobby" class="text-button fun-intro-button" type="button" hidden>查看玩法简介</button>
+            <fieldset id="fun-rules" class="fun-rules" hidden><legend>本局趣味玩法</legend><div class="fun-rule-options">
+              <label><input type="checkbox" data-rule="speed">加速 +2</label><label><input type="checkbox" data-rule="trap">陷阱 −3</label><label><input type="checkbox" data-rule="safe">安全岛</label><label><input type="checkbox" data-rule="lucky">幸运 ±1～3</label><label><input type="checkbox" data-rule="ice">随机冰冻</label><label><input type="checkbox" data-rule="captureEffects">台词与动画</label><label><input type="checkbox" data-rule="alliances">结盟与背叛</label><label><input type="checkbox" data-rule="items">三张道具卡</label><label><input type="checkbox" data-rule="captains">机长技能</label>
+            </div><p>房主开局前选择，所有人同步；开局后锁定。</p><p id="captain-rule-note" hidden>机长技能同时启用结盟与道具，需所有入座玩家选好机长再开局。</p></fieldset>
+            <button id="spectate-button" class="text-button spectate-button" type="button"><svg class="icon"><use href="#i-eye"/></svg>离开座位，观战</button>
+          </div>
+          <div id="game-panel" class="game-panel" hidden>
+            <div class="board-stage">
+              <div id="game-board" class="game-board"></div>
+              <div class="board-dice-anchor"><div id="dice" class="dice" aria-label="尚未掷骰子"><span class="dice-dot"></span><span class="dice-dot"></span><span class="dice-dot"></span><span class="dice-dot"></span><span class="dice-dot"></span><span class="dice-dot"></span><span class="dice-dot"></span><span class="dice-dot"></span><span class="dice-dot"></span></div></div>
+              <svg id="capture-effects" class="capture-effects" viewBox="-4 -4 608 608" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden></svg>
+              <div id="capture-callout" class="capture-callout" role="status" aria-live="polite" hidden><strong id="capture-fact"></strong><span id="capture-quote"></span></div>
+            </div>
+            <div id="bottom-panel" class="bottom-panel dock-zone" data-dock="bottom" data-dock-label="拖放至棋盘下方"></div>
+            <div id="fun-legend" class="fun-legend" aria-label="趣味模式规则" hidden>
+              <div class="special-legend-items"><span class="legend-speed" data-legend="speed">⚡ 加速 +2</span><span class="legend-trap" data-legend="trap">↶ 陷阱 −3</span><span class="legend-safe" data-legend="safe">♢ 安全岛免撞</span><span class="legend-lucky" data-legend="lucky">🎁 幸运 ±1～3</span><span class="legend-ice" data-legend="ice">🧊 冰冻须掷 6</span><span data-legend="alliances">🤝 结盟与背叛</span><span data-legend="items">🃏 三张道具卡</span><span data-legend="captains">✈ 机长技能</span></div>
+              <p id="legend-rule-description">特殊格优先；跳跃或飞行的最终落点也可触发一次。额外移动不连锁，后退最多到外环起点。</p>
+              <p id="ice-status" class="ice-status" aria-live="polite">20 次掷骰后生成冰冻格</p>
+            </div>
+            <div id="board-hint" class="board-hint" aria-live="polite"></div>
+            <section id="rankings-panel" class="rankings-panel" aria-labelledby="rankings-title" hidden>
+              <div class="rankings-heading"><h2 id="rankings-title">本局名次榜</h2><span class="rankings-stat-label">踩次数</span></div>
+              <p id="rankings-description"></p>
+              <ol id="rankings-list" class="rankings-list"></ol>
+              <p class="stats-description">对手颜色：撞飞次数 · 自己颜色：自爆破墙回家次数</p>
+            </section>
+          </div>
+          <div class="play-area-footer"><span class="color-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="table-footer">入座后，等待房主开始游戏</span></div>
+        </section>
+        <aside id="side-panel" class="side-panel dock-zone" data-dock="right" data-dock-label="拖放至棋盘右侧">
+          <details id="key-events-panel" class="strategy-panel key-events-panel dock-item" open hidden>
+            <summary><span>关键事件</span><span id="key-events-preview" class="strategy-summary key-events-preview">暂无关键事件</span><span class="dock-handle" title="按住拖拽至棋盘左/右/下" aria-label="拖拽调整位置">⠿</span></summary>
+            <div class="key-events-content"><p id="key-events-count" class="strategy-note">最近 0 条 · 最多保留 50 条</p><ol id="key-events-list" class="key-events-list" aria-label="本局关键事件，最新在前" tabindex="0"><li class="key-event-empty">关键时刻会记录在这里。</li></ol></div>
+          </details>
+          <details id="strategy-panel" class="strategy-panel dock-item" hidden>
+            <summary><span id="strategy-title">盟友与道具</span><span id="strategy-summary" class="strategy-summary"></span><button id="strategy-float-toggle" class="float-toggle" type="button" title="切换悬浮模式" aria-label="切换悬浮模式">⬡</button><span class="dock-handle" title="按住拖拽至棋盘左/右/下" aria-label="拖拽调整位置">⠿</span></summary>
+            <div class="strategy-content">
+              <section id="captain-section" class="strategy-section captain-section" hidden><h3 id="captain-name">机长技能</h3><p id="captain-public" class="strategy-public"></p><p id="captain-active"></p><p id="captain-passive"></p><p id="captain-status" class="strategy-note"></p><form id="captain-form" class="captain-form"><label id="captain-piece-field" class="strategy-field" for="captain-piece">己方飞机<select id="captain-piece" aria-label="技能源飞机"></select></label><label id="captain-target-field" class="strategy-field" for="captain-target">目标飞机<select id="captain-target" aria-label="技能目标飞机"></select></label><button id="captain-use" class="button button-secondary" type="submit">使用主动技能</button></form><button id="captain-accept" class="button button-secondary captain-accept" type="button" hidden>接受当前点数并换人</button><p id="captain-help" class="strategy-note"></p></section>
+              <section id="alliance-section" class="strategy-section" hidden><h3>结盟与背叛</h3><p id="alliance-public" class="strategy-public"></p><p id="alliance-status"></p><div id="alliance-invitations" class="alliance-invitations"></div><div id="alliance-actions" class="strategy-actions"><label class="strategy-field" for="alliance-target">邀请玩家<select id="alliance-target" aria-label="结盟目标"></select></label><button id="alliance-invite" class="button button-secondary" type="button">发出邀请</button><button id="alliance-betray" class="button button-secondary" type="button" hidden>背叛盟友</button></div><p class="strategy-note">每人一位盟友：互不撞飞，互相通墙。每人每局只能结盟一次、背叛一次；背叛者获叛徒buff（下轮掷骰翻倍、两张随机道具、3轮内被踩送道具），被背叛方获专属追杀卡。</p></section>
+              <section id="item-section" class="strategy-section" hidden><h3>道具卡</h3><p id="hand-counts" class="strategy-public"></p><p id="own-hand" class="own-hand"></p><form id="item-form" class="item-form"><label class="strategy-field" for="item-card">道具<select id="item-card" aria-label="选择道具卡"></select></label><label id="item-source-field" class="strategy-field" for="item-source">己方飞机<select id="item-source" aria-label="道具源飞机"></select></label><label id="item-target-field" class="strategy-field" for="item-target">敌方飞机<select id="item-target" aria-label="道具目标飞机"></select></label><button id="item-submit" class="button button-secondary" type="submit">使用道具</button></form><p id="item-help" class="strategy-note"></p><p id="item-rule-note" class="strategy-note">开局各一张，不再补充。轮到自己且掷骰前，每轮最多用一张；掷 6 连掷仍算同一轮。</p></section>
+              <p id="mine-status" class="strategy-note" hidden></p>
+            </div>
+          </details>
+          <section id="turn-card" class="turn-card dock-item" aria-label="本轮状态"><div class="card-label"><span id="turn-label">准备起飞</span><span id="turn-countdown" class="countdown" hidden></span><span class="dock-handle" title="按住拖拽至棋盘左/右/下" aria-label="拖拽调整位置">⠿</span></div><h2 id="turn-title">好朋友，快就位</h2><p id="turn-description">每个人选择一个颜色，就可以开始。</p><div id="dice-area" class="dice-area" hidden><button id="roll-button" class="button button-primary" type="button">掷骰子<svg class="icon"><use href="#i-arrow"/></svg></button></div><div id="move-options" class="move-options" hidden></div><div id="lobby-progress" class="lobby-progress"><div class="progress-track"><span id="progress-fill"></span></div><span id="progress-label">等待玩家入座</span></div><div id="lobby-start" class="lobby-start"><button id="start-game" class="button button-primary start-button" type="button"><svg class="icon"><use href="#i-plane"/></svg>开始游戏</button></div><div id="role-tools" class="role-tools" hidden><button id="role-code-button" class="text-button" type="button" hidden>角色代码</button><button id="takeover-button" class="text-button" type="button" hidden>接管角色</button><button id="host-tools-button" class="text-button" type="button" hidden>房间管理</button></div><div id="afk-tools" class="afk-tools" hidden><button id="afk-toggle" class="text-button" type="button" hidden>挂机</button><button id="afk-skip" class="text-button" type="button" hidden>跳过其掷骰阶段</button><button id="turn-sound-chip" class="text-button turn-sound-chip" type="button" title="开关轮到自己掷骰提示音">提示音: 关</button></div></section>
+          <section class="rules-card"><div class="card-label"><span>飞行指南</span><span class="tiny-plane">✈</span></div><ol><li><span class="rule-number rule-takeoff">2·4·6</span><div><strong>掷出 2、4、6，即可起飞</strong><p>先到本色停机坪，下次掷骰进入外环；只有 6 可再掷。</p></div></li><li><span class="rule-number rule-jump">↗</span><div><strong>同色跳跃，快人一步</strong><p>落到同色格跳 4 格，飞行格飞 12 格。</p></div></li><li><span class="rule-number rule-finish">⌂</span><div><strong>四架抵达，按序排名</strong><p>只剩最后一位未抵达时结束，终点需刚好到达。</p></div></li></ol><p class="rule-footnote">敌方同色叠子成墙 · 点数刚好到墙时自爆破墙 · 超过墙时反弹</p></section>
+          <section class="activity-card"><div class="card-label"><span>航行动态</span><span id="spectator-count" class="subtle-label">0 人观战</span></div><div id="activity-log" class="activity-log" role="log" aria-live="polite"><p class="empty-log">美好的一局，即将开始。</p></div></section>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer"><span>轻松一局 · 快乐同桌</span><span>F L Y &nbsp; T O G E T H E R</span></footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="confirm-dialog" class="confirm-dialog"><div class="dialog-icon"><svg class="icon"><use href="#i-exit"/></svg></div><h2 id="dialog-title">离开房间？</h2><p id="dialog-description">你可以使用邀请链接重新加入。</p><div class="dialog-actions"><button id="dialog-cancel" class="button button-secondary" type="button">继续玩</button><button id="dialog-confirm" class="button button-primary" type="button">确认离开</button></div></dialog>
+  <dialog id="fun-intro-dialog" class="confirm-dialog fun-intro-dialog" aria-labelledby="fun-intro-title">
+    <div class="fun-intro-heading"><h2 id="fun-intro-title">趣味玩法简介</h2><button id="fun-intro-close" class="text-button" type="button" aria-label="关闭玩法简介">关闭</button></div><p id="fun-intro-selection"></p>
+    <div class="fun-intro-content">
+      <p>趣味飞行棋支持 2～4 人联机，在经典飞行棋的基础上加入特殊格、叠子墙和可选策略玩法，让每次落点都有新的变化。</p>
+      <p>每人控制 4 架飞机：掷出 2、4、6 可出机场到停机坪，下次掷骰进入外环；普通同色格跳 4 格，飞行格飞 12 格。掷出6可继续掷，不限连续次数。终点需要刚好到达，超出会反弹；四架全部抵达后按顺序排名，只剩最后一位未完成时结束。</p>
+      <h3>五类特殊格</h3>
+      <table class="fun-intro-table"><thead><tr><th scope="col">格子</th><th scope="col">效果</th></tr></thead><tbody>
+        <tr><th scope="row">⚡ 加速格</th><td>额外前进 2 格，遇敌方墙会提前停下。</td></tr>
+        <tr><th scope="row">↶ 陷阱格</th><td>后退 3 格，最多退到外环起点。</td></tr>
+        <tr><th scope="row">♢ 安全岛</th><td>不同颜色飞机可以共处，免疫撞击，叠子也不形成拦路墙。</td></tr>
+        <tr><th scope="row">🎁 幸运格</th><td>随机前进或后退 1～3 格。</td></tr>
+        <tr><th scope="row">🧊 冰冻格</th><td>全桌每累计 20 次掷骰随机生成或刷新。首架落入的飞机被冻结，冰冻格消失；需掷出 6 并选择该机移动才能解冻。</td></tr>
+      </tbody></table>
+      <p>特殊格优先于同色奖励，跳跃或飞行的落点也可以触发一次；特殊效果带来的额外移动不会连锁触发其他奖励。</p>
+      <h3>叠子成墙</h3><p>同一敌方颜色的两架及以上飞机叠在外环同一格，就会形成墙。普通移动点数刚好到墙时，撞击飞机与墙内敌机一起返回机场；点数超过墙则反弹。跳跃和飞行可以越墙，但落在墙上仍会自爆破墙。</p>
+      <h3>房主还可以额外开启</h3><ul>
+        <li><strong>🤝 结盟与背叛：</strong>邀请并接受后结盟，每人最多一位盟友，互不撞飞、互相通墙。每人每局只能结盟一次、背叛一次；背叛者获得叛徒buff（两张随机道具、下轮掷骰点数翻倍、3轮内所有人踩他都可获得一张道具），被背叛方获得专属追杀卡。</li>
+        <li><strong>🃏 道具卡：</strong>开局获得定身、地雷、导弹各一张。定身冻结指定外环敌机；地雷埋在己机当前普通外环格，敌机踩中返回机场；导弹击落己机前方 1～6 格内的一架敌机；遭盟友背叛可获得专属“追杀卡”（锁定外环任一敌机，若下回合仍在外环且非安全格，跳至其位置将其击落）。轮到自己且掷骰前，每轮最多使用一张。</li>
+      </ul>
+      <h3>✈ 五位机长</h3><p id="captain-intro-note">机长为趣味模式的可选玩法，同时启用结盟与道具。所有入座玩家开局前自行选择，可以重复；开局后锁定。主动次数见机长说明，被动持续生效。</p><div id="captain-intro-list" class="captain-intro-list"></div>
+      <p>技能额外移动不会连锁触发同色奖励或特殊格；护盾可挡一次敌方碰撞、导弹或地雷，仍不能抵挡主动自爆破墙。复仇追击受安全岛和护盾保护规则约束。</p>
+      <p>默认开启五类特殊格及撞机台词、动画，结盟、道具和机长默认关闭。房主在开局前勾选玩法，开局后规则锁定。</p>
+    </div>
+  </dialog>
+  <dialog id="role-dialog" class="confirm-dialog role-dialog" aria-labelledby="role-title" aria-describedby="role-description">
+    <div class="dialog-icon"><svg class="icon"><use href="#i-users"/></svg></div><h2 id="role-title">角色代码</h2><p id="role-description"></p>
+    <div id="role-code-view" hidden><label class="field-label" for="own-role-code">你的专属角色代码</label><input id="own-role-code" class="copy-field role-code-field" type="text" readonly autocomplete="off" spellcheck="false"><div class="dialog-actions"><button id="role-close" class="button button-secondary" type="button">关闭</button><button id="role-copy" class="button button-primary" type="button">复制代码</button></div></div>
+    <form id="role-takeover-form" hidden><label class="field-label" for="takeover-code">要接管的角色代码</label><input id="takeover-code" class="copy-field role-code-field" type="text" placeholder="输入朋友提供的代码" maxlength="32" autocomplete="off" spellcheck="false" autocapitalize="characters"><p id="role-error" class="inline-error" role="alert" hidden></p><div class="dialog-actions"><button id="role-takeover-cancel" class="button button-secondary" type="button">取消</button><button id="role-submit" class="button button-primary" type="submit">接管并继续游戏</button></div></form>
+  </dialog>
+  <dialog id="host-dialog" class="confirm-dialog host-dialog" aria-labelledby="host-title" aria-describedby="host-description">
+    <div class="dialog-icon"><svg class="icon"><use href="#i-users"/></svg></div><h2 id="host-title">房间管理</h2><p id="host-description"></p>
+    <div id="host-player-list" class="host-player-list"></div>
+    <p class="host-code-note">接管码使用后会更新，观战成员暂无接管码。</p>
+    <div class="dialog-actions"><button id="host-close" class="button button-secondary" type="button">关闭</button></div>
+  </dialog>
+  <dialog id="skin-dialog" class="confirm-dialog skin-dialog" aria-labelledby="skin-title" aria-describedby="skin-description">
+    <div class="dialog-icon"><svg class="icon"><use href="#i-palette"/></svg></div><h2 id="skin-title">个性装扮</h2><p id="skin-description">定制你的棋子与棋盘皮肤，即刻生效并自动保存。</p>
+    <div class="segmented skin-tabs" role="tablist">
+      <button id="skin-tab-piece" type="button" class="active" role="tab" aria-selected="true">✈ 棋子皮肤</button>
+      <button id="skin-tab-board" type="button" role="tab" aria-selected="false">⌂ 棋盘皮肤</button>
+    </div>
+    <div id="piece-skins-section" class="skins-grid"></div>
+    <div id="board-skins-section" class="skins-grid" hidden></div>
+    <div class="dialog-actions"><button id="skin-close" class="button button-primary" type="button">完成</button></div>
+  </dialog>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>
