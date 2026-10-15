@@ -37,7 +37,15 @@ for (let turn = 0; turn < 4; turn++) {
     VISUAL_ROUTE_SPACES[index] = { kind: outerCorner ? 'outer-corner' : 'other', turns: outerCorner ? turn : 0 };
   });
 }
-const LANE_CENTERS = [.975, 1.843, 2.711, 3.579, 4.447, 5.315];
+const CORNER_LOW = (CORNER + .5) * UNIT;
+const CORNER_HIGH = VIEW_SIZE - CORNER_LOW;
+const FLIGHT_POINTS = [
+  [[CORNER_HIGH, CORNER_LOW], [CORNER_HIGH, CORNER_HIGH]],
+  [[CORNER_HIGH, CORNER_HIGH], [CORNER_LOW, CORNER_HIGH]],
+  [[CORNER_LOW, CORNER_HIGH], [CORNER_LOW, CORNER_LOW]],
+  [[CORNER_LOW, CORNER_LOW], [CORNER_HIGH, CORNER_LOW]]
+];
+const LANE_CENTERS = [0.905, 1.77, 2.635, 3.5, 4.365, 5.23];
 const VISUAL_HOME_LANES = Array.from({ length: 4 }, (_, seat) => LANE_CENTERS.map((col) => rotate([7, col], seat)));
 const VISUAL_AIRPORTS = [
   [[.525, .525], [.525, 1.575], [1.575, .525], [1.575, 1.575]],
@@ -80,8 +88,7 @@ function airportMarkup(seat) {
 function flightMarkup(seat) {
   const fromIndex = (STARTS[seat] + FLIGHT_FROM) % 52;
   const toIndex = (STARTS[seat] + FLIGHT_TO) % 52;
-  const [x1, y1] = xy(VISUAL_ROUTE[fromIndex]);
-  const [x2, y2] = xy(VISUAL_ROUTE[toIndex]);
+  const [[x1, y1], [x2, y2]] = FLIGHT_POINTS[seat];
   const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
   const line = `M${number(x1)} ${number(y1)}L${number(x2)} ${number(y2)}`;
   const arrows = [1 / 3, 2 / 3].map((fraction) => {

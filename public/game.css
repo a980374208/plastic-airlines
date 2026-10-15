@@ -69,14 +69,18 @@ body.is-panel-dragging .dock-zone.dock-zone-hover { outline: 2px dashed #ffe087 
 .room-active .game-board { max-width: none; width: 100%; height: 100%; }
 .room-active .game-board svg { display: block; width: 100%; height: 100%; }
 .room-active .board-dice-anchor { position: absolute; left: 50%; top: 50%; width: 5.4%; aspect-ratio: 1; transform: translate(-50%, -50%); display: grid; place-items: center; perspective: 220px; z-index: 3; }
+.room-active .board-dice-anchor .dice {
+  transform: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+}
 .room-active .board-dice-anchor .dice.is-rollable {
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(255, 212, 42, 0.7), 0 2px 4px #0004;
+  box-shadow: 0 0 14px rgba(255, 212, 42, 0.75), 0 3px 8px rgba(0, 0, 0, 0.3);
   animation: dice-rollable-pulse 1.6s ease-in-out infinite;
 }
 .room-active .board-dice-anchor .dice.is-rollable:hover {
-  transform: scale(1.12);
-  box-shadow: 0 0 18px rgba(255, 212, 42, 0.9), 0 3px 6px #0006;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 212, 42, 0.95), 0 4px 10px rgba(0, 0, 0, 0.35);
 }
 @keyframes dice-rollable-pulse {
   0%, 100% { transform: scale(1); }
